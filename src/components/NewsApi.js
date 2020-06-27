@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import News from './News.js';
 
-const NewsApi = () => {
+const NewsApi = ({ pageName }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -10,7 +10,8 @@ const NewsApi = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('https://node-hnapi.herokuapp.com/news');
+        const page = pageName;
+        const response = await axios.get(`https://node-hnapi.herokuapp.com/news?page=${page}`);
         setData(response.data);
       }
       catch(e) {
@@ -22,7 +23,7 @@ const NewsApi = () => {
   }, []);
 
   if(loading){
-    return <div>Loading...</div>
+    return <div className="news-main">Loading...</div>
   }
   if(!data){
     return null;
