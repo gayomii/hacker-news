@@ -1,15 +1,12 @@
 import React from 'react';
-import NewsApi from './components/NewsApi';
+import { Route } from 'react-router-dom';
 import './components/style.css';
-import Header from './components/Header';
-import Pagination from './components/Pagination';
+import NewsPage from './page/NewsPage';
 
 function App() {
   return (
     <>
-      <Header />
-      <NewsApi />
-      <Pagination />
+      <Route path="/news" component={NewsPage} />
     </>
   );
 }

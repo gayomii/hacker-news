@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ history }) => {
+
   return(
-    <div className="header-title">Hacker News</div>
+    <div className="header-title">
+      Hacker News
+    </div>
   );
 };
 
